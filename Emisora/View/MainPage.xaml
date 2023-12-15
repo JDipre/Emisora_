@@ -1,0 +1,31 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Emisora.View.MainPage">
+
+    <StackLayout>
+        <Button x:Name="CounterBtn" Text="Emisoras" Clicked="OnCounterClicked" HorizontalOptions="Center"/>
+
+        <ActivityIndicator x:Name="loading" HeightRequest="30" Color="Blue" IsRunning="True" IsVisible="false">
+        </ActivityIndicator>
+
+        <ListView x:Name="listViewEmisoras">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Image Source="{Binding Foto}" WidthRequest="100" HeightRequest="50" Aspect="AspectFill" Margin="0,0,10,0" />
+                            <Label Text="{Binding Nombre}" VerticalTextAlignment="Center" Margin="10,0,0,0" />
+                            <Button Clicked="OnPlayEmisoraClicked" Text="Escuchar" HorizontalOptions="End" VerticalOptions="End" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Label>Emisoras JD</Label>
+        <!-- Otros elementos aquí -->
+    </StackLayout>
+</ContentPage>
